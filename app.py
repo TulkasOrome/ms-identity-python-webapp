@@ -4,6 +4,7 @@ from flask import Flask, redirect, render_template, request, session, url_for
 from flask_session import Session
 
 import app_config
+import chatwoot_api
 
 __version__ = "0.7.0"  # The version of this sample, for troubleshooting purpose
 
@@ -71,6 +72,10 @@ def call_downstream_api():
         timeout=30,
     ).json()
     return render_template('display.html', result=api_result)
+
+@app.route("/create")
+def create_chatwoot_account():
+    chatwoot_api.create_account("test account")
 
 
 if __name__ == "__main__":

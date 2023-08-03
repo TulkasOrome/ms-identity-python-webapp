@@ -25,3 +25,7 @@ SCOPE = ["User.ReadBasic.All"]
 SESSION_TYPE = "filesystem"
 # Using the file system will not work in most production systems,
 # it's better to use a database-backed session store instead.
+
+CHATWOOT_API_ENDPOINT = "https://hiverhq.co.in/"
+
+CHATWOOT_PLATFORM_APP_API_KEY = "BFjxtpD1m6Q8ups3Rcd9JTVe"
