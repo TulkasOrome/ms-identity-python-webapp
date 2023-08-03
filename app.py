@@ -1,6 +1,8 @@
 import identity.web
 import requests
 from flask import Flask, redirect, render_template, request, session, url_for
+
+import database
 from flask_session import Session
 
 import app_config
@@ -76,6 +78,7 @@ def call_downstream_api():
 @app.route("/create")
 def create_chatwoot_account():
     chatwoot_api.create_account("test account")
+
 
 
 if __name__ == "__main__":
