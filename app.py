@@ -104,7 +104,8 @@ def create_chatwoot_account():
 
 @app.route("/microsoft/auth")
 def microsoft_auth_response(res):
-    print(res)
+    #todo add response to account create and user create
+    #todo make graph API request for user details
     pass
 
 
