@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ms-identity-python-webapp.iml" filepath="$PROJECT_DIR$/.idea/ms-identity-python-webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ms-auth-create-login-hiver-poc.iml" filepath="$PROJECT_DIR$/.idea/ms-auth-create-login-hiver-poc.iml" />
     </modules>
   </component>
 </project>

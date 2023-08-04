@@ -8,6 +8,24 @@ from flask_session import Session
 import app_config
 import chatwoot_api
 
+# for testing chatwoot apis
+test_payload = {
+    "name": "Ford",
+    "password": "Password!123",
+    "id": 1,
+    "uid": "12345",
+    "custom_attributes": "test",
+    "role": "Administrator",
+    "available_name": "Some Name",
+    "display_name": "Some other Name",
+    "email": "email@email.com",
+    "account_id": 1,
+    "confirmed": "Yes",
+    "accounts": "An Account"
+}
+
+
+
 __version__ = "0.7.0"  # The version of this sample, for troubleshooting purpose
 
 app = Flask(__name__)
@@ -15,27 +33,27 @@ app.config.from_object(app_config)
 assert app.config["REDIRECT_PATH"] != "/", "REDIRECT_PATH must not be /"
 Session(app)
 
-# This section is needed for url_for("foo", _external=True) to automatically
-# generate http scheme when this sample is running on localhost,
-# and to generate https scheme when it is deployed behind reversed proxy.
-# See also https://flask.palletsprojects.com/en/2.2.x/deploying/proxy_fix/
 from werkzeug.middleware.proxy_fix import ProxyFix
+
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 auth = identity.web.Auth(
     session=session,
     authority=app.config["AUTHORITY"],
-    client_id=app.config["CLIENT_ID"],
-    client_credential=app.config["CLIENT_SECRET"],
+    #tenp for testing
+    client_id="efbfa13c-1935-471b-a6e6-dec032d43407",
+    #tenp for testing
+    client_credential="6Pz8Q~ABgeHIv1xj.1D00qU3XNg~FrPGTAQXLbH-",
 )
 
 
 @app.route("/login")
 def login():
     return render_template("login.html", version=__version__, **auth.log_in(
-        scopes=app_config.SCOPE, # Have user consent to scopes during log-in
-        redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
-        ))
+        scopes=app_config.SCOPE,  # Have user consent to scopes during log-in
+        redirect_uri=url_for("auth_response", _external=True),
+        # Optional. If present, this absolute URL must match your app's redirect_uri registered in Azure Portal
+    ))
 
 
 @app.route(app_config.REDIRECT_PATH)
@@ -75,10 +93,19 @@ def call_downstream_api():
     ).json()
     return render_template('display.html', result=api_result)
 
+
 @app.route("/create")
 def create_chatwoot_account():
-    chatwoot_api.create_account("test account")
+    a = chatwoot_api.create_account("test account")
+    u = chatwoot_api.create_user(test_payload)
 
+
+# au = chatwoot_api.create_account_user(a["id"], u["id"])
+
+@app.route("/microsoft/auth")
+def microsoft_auth_response(res):
+    print(res)
+    pass
 
 
 if __name__ == "__main__":

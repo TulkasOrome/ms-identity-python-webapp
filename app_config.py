@@ -1,15 +1,15 @@
 import os
 
 # Application (client) ID of app registration
-CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_ID = os.getenv("efbfa13c-1935-471b-a6e6-dec032d43407")
 # Application's generated client secret: never check this into source control!
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+CLIENT_SECRET = os.getenv("6Pz8Q~ABgeHIv1xj.1D00qU3XNg~FrPGTAQXLbH-")
 
 # You can configure your authority via environment variable
 # Defaults to a multi-tenant app in world-wide cloud
 AUTHORITY = os.getenv("AUTHORITY", "https://login.microsoftonline.com/common")
 
-REDIRECT_PATH = "/getAToken"  # Used for forming an absolute URL to your redirect URI.
+REDIRECT_PATH = "/microsoft/auth"  # Used for forming an absolute URL to your redirect URI.
 # The absolute URL must match the redirect URI you set
 # in the app's registration in the Azure portal.
 
