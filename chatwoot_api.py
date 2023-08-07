@@ -36,7 +36,7 @@ def create_user(msauth_res):
 
 def create_account_user(account_id, user_id):
     endpoint = app_config.CHATWOOT_API_ENDPOINT + "platform/api/v1/accounts/" + str(account_id) + "/account/users"
-    data = {"user_id": int(user_id), "role": "agent"}
+    data = {"user_id": 25, "role": "agent"}
     headers = {"api_access_token": app_config.CHATWOOT_PLATFORM_APP_API_KEY}
     try:
         r = requests.post(endpoint, data=data, headers=headers).json()

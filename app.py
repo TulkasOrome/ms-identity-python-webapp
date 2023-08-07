@@ -1,8 +1,6 @@
 import identity.web
 import requests
 from flask import Flask, redirect, render_template, request, session, url_for
-
-import database
 from flask_session import Session
 
 import app_config
@@ -24,8 +22,6 @@ test_payload = {
     "accounts": "An Account"
 }
 
-
-
 __version__ = "0.7.0"  # The version of this sample, for troubleshooting purpose
 
 app = Flask(__name__)
@@ -40,9 +36,9 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 auth = identity.web.Auth(
     session=session,
     authority=app.config["AUTHORITY"],
-    #tenp for testing
+    # tenp for testing
     client_id="efbfa13c-1935-471b-a6e6-dec032d43407",
-    #tenp for testing
+    # tenp for testing
     client_credential="6Pz8Q~ABgeHIv1xj.1D00qU3XNg~FrPGTAQXLbH-",
 )
 
@@ -56,7 +52,7 @@ def login():
     ))
 
 
-@app.route(app_config.REDIRECT_PATH)
+@app.route("/microsoft/auth")
 def auth_response():
     result = auth.complete_log_in(request.args)
     if "error" in result:
@@ -98,16 +94,17 @@ def call_downstream_api():
 def create_chatwoot_account():
     a = chatwoot_api.create_account("test account")
     u = chatwoot_api.create_user(test_payload)
+    #au = chatwoot_api.create_account_user(a["id"], u["id"])
 
+# getting the same userID returned each time
 
-# au = chatwoot_api.create_account_user(a["id"], u["id"])
-
-@app.route("/microsoft/auth")
-def microsoft_auth_response(res):
-    #todo add response to account create and user create
-    #todo make graph API request for user details
-    pass
+#@app.route("/microsoft/auth")
+#def microsoft_auth_response(res):
+  #  print(res)
+    # todo add response to account create and user create
+    # todo make graph API request for user details
+  #  pass
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="localhost")
