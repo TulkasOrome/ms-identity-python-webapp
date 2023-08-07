@@ -9,7 +9,7 @@ url_object = URL.create(
     "mysql+pymysql",
     username="root",
     password="arcturus!5",
-    host="hiver-sql-awtest.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
+    host="admin:jATo75T1N#!7@hiver-sql-awtest.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
     database="hiver-sql-awtest",
 )
 

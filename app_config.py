@@ -30,4 +30,4 @@ CHATWOOT_API_ENDPOINT = "https://hiverhq.co.in/"
 
 CHATWOOT_PLATFORM_APP_API_KEY = "BFjxtpD1m6Q8ups3Rcd9JTVe"
 
-HIVER_API_DB_ENDPOINT = "hiver-sql-awtest.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com:3306"
+HIVER_API_DB_ENDPOINT = "admin:jATo75T1N#!7@hiver-sql-awtest.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com:3306"
