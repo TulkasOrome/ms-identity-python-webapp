@@ -11,7 +11,7 @@ url_object = URL.create(
     password="Skeptic89a",
     host="hiver-sql-dev.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
     port=3306,
-    database="hiver_mysql_dev",
+    database="hiver_sql_dev",
 )
 
 engine = create_engine(url_object)
