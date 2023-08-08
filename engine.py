@@ -8,9 +8,9 @@ import pymysql
 url_object = URL.create(
     "mysql+pymysql",
     username="admin",
-    password="jATo75T1N#!7",
-    host="hiver-sql-awtest.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
-    database="hiver-sql-awtest",
+    password="nC150W&&*zD8",
+    host="hiver-mysql-dev.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
+    database="hiver-sql-dev",
 )
 
 engine = create_engine(url_object)
