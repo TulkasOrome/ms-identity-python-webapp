@@ -107,4 +107,4 @@ def create_chatwoot_account():
 
 
 if __name__ == "__main__":
-    app.run(host="localhost")
+    app.run(port=80)
