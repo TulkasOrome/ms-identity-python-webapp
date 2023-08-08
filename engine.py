@@ -8,8 +8,8 @@ import pymysql
 url_object = URL.create(
     "mysql+pymysql",
     username="admin",
-    password="nC150W&&*zD8",
-    host="hiver-mysql-dev.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
+    password="Skeptic89a",
+    host="127.0.0.1",
     port=3306,
     database="hiver-mysql-dev",
 )
