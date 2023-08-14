@@ -21,7 +21,8 @@ class Account_User(Base):
 
     account_id: Mapped[int] = mapped_column(String(30))
     role: Mapped[str] = mapped_column(String(30))
-    user_id: Mapped[str] = mapped_column(String(30), primary_key=True)
+    user_id: Mapped[str] = mapped_column(String(30))
+    id: Mapped[int] = mapped_column(primary_key=True)
 
 
 class User(Base):

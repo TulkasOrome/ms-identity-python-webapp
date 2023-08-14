@@ -94,16 +94,14 @@ def call_downstream_api():
 def create_chatwoot_account():
     a = chatwoot_api.create_account("test account")
     u = chatwoot_api.create_user(test_payload)
-    #au = chatwoot_api.create_account_user(a["id"], u["id"])
+    au = chatwoot_api.create_account_user(a["id"], u["id"])
+    sso = chatwoot_api.create_sso(u["id"])
+    print(sso)
 
-# getting the same userID returned each time
+    # todo add async
 
-#@app.route("/microsoft/auth")
-#def microsoft_auth_response(res):
-  #  print(res)
     # todo add response to account create and user create
     # todo make graph API request for user details
-  #  pass
 
 
 if __name__ == "__main__":

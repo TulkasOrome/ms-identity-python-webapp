@@ -7,11 +7,11 @@ import pymysql
 
 url_object = URL.create(
     "mysql+pymysql",
-    username="admin",
-    password="Skeptic89a",
-    host="hiver-sql-dev.cd1wuzxpxrbp.us-west-2.rds.amazonaws.com",
+    username="root",
+    password="arcturus!5",
+    host="127.0.0.1",
     port=3306,
-    database="hiver_sql_dev",
+    database="hiver-sql-dev",
 )
 
 engine = create_engine(url_object)
